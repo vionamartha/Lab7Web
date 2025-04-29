@@ -215,8 +215,7 @@ Selanjutnya, fitur Command Line Interface (CLI) digunakan dengan perintah php sp
          ![image](https://github.com/user-attachments/assets/c4afc9e5-d5ea-42dd-91cb-264802c7d711)
 
  ## Praktikum 4: Framework Lanjutan (Modul Login)
-    Membuat tabel: User Login
-   
+
 
 
 
