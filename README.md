@@ -1,4 +1,4 @@
-# Praktikum Pemrograman Web 2 (Praktikum 1-3)
+# Praktikum Pemrograman Web 2 (Praktikum 1-6)
 
 **Nama:** Viona Martha Rayendra  
 **NIM:** 312310122  
@@ -213,6 +213,10 @@ Selanjutnya, fitur Command Line Interface (CLI) digunakan dengan perintah php sp
          Tampilan pada halaman menunjukkan fitur detail artikel yang berhasil diakses melalui URL berdasarkan slug, yaitu saat artikel berjudul *"Timnas Indonesia Menang Telak di Kualifikasi"* diklik.
       
          ![image](https://github.com/user-attachments/assets/c4afc9e5-d5ea-42dd-91cb-264802c7d711)
+
+ ## Praktikum 4: Framework Lanjutan (Modul Login)
+    Membuat tabel: User Login
+   
 
 
 
