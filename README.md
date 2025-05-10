@@ -215,5 +215,86 @@ Selanjutnya, fitur Command Line Interface (CLI) digunakan dengan perintah php sp
          ![image](https://github.com/user-attachments/assets/c4afc9e5-d5ea-42dd-91cb-264802c7d711)
 
  ## Praktikum 4: Framework Lanjutan (Modul Login)
+ 
+     Membuat Tabel: User Login
+
+<img width="960" alt="user" src="https://github.com/user-attachments/assets/862a1e29-c05b-4acd-8f11-ee4cb2640052" />
+
+Gambar ini menunjukkan struktur tabel `user_login` yang saya buat di phpMyAdmin sebagai bagian dari pembuatan fitur login dengan CodeIgniter 4. Tabel ini terdiri dari empat kolom, yaitu `id` sebagai primary key dengan tipe data `int(11)` dan AUTO_INCREMENT, serta `username`, `useremail`, dan `userpassword` yang bertipe `varchar(200)` untuk menyimpan data pengguna. Tabel ini akan digunakan sebagai tempat penyimpanan data akun yang diperlukan dalam proses login. 
 
 
+<img width="960" alt="usermodel" src="https://github.com/user-attachments/assets/d6642137-5475-41ba-9e18-5f00ad26b810" />
+
+Gambar ini menampilkan kode `UserModel.php` yang berfungsi sebagai model untuk mengelola data dari tabel `user_login`. Properti yang digunakan antara lain `$table` untuk nama tabel, `$primaryKey` untuk kunci utama, `$useAutoIncrement` untuk mengatur ID otomatis, serta `$allowedFields` untuk mendefinisikan kolom yang boleh diisi atau dimodifikasi, yaitu `username`, `useremail`, dan `userpassword`. Model ini digunakan untuk menangani operasi database terkait login pengguna.
+
+![image](https://github.com/user-attachments/assets/8aae2049-ab52-40cc-888b-1604c06e4c43)
+
+Gambar ini menampilkan kode pada file `User.php` yang berfungsi sebagai controller untuk mengatur proses login dan logout pengguna. Fungsi `index()` digunakan untuk menampilkan daftar user dari tabel `user_login`, sedangkan fungsi `login()` menangani autentikasi dengan memeriksa input `email` dan `password`. Jika data cocok dengan yang ada di database (dengan validasi menggunakan `password_verify()`), maka data user disimpan ke dalam session dan pengguna diarahkan ke halaman `admin/artikel`. Jika tidak cocok, sistem menampilkan pesan error melalui `flashdata` dan mengarahkan kembali ke halaman login. Fungsi `logout()` digunakan untuk menghapus session aktif dan mengarahkan pengguna kembali ke halaman login.
+
+![image](https://github.com/user-attachments/assets/c25b6002-4847-40ef-a905-b6f71e81e1e0)
+
+Gambar ini menampilkan file `login.php` yang berada pada direktori `Views/user/`, yang berfungsi sebagai halaman tampilan form login. Form ini terdiri dari dua input utama yaitu untuk email dan password, yang masing-masing diberi label dan class agar sesuai dengan gaya tampilan Bootstrap. Selain itu, terdapat script untuk menampilkan pesan kesalahan (`flashdata`) jika login gagal, seperti email tidak terdaftar atau password salah. Form dikirim menggunakan metode POST dan akan diproses oleh controller `User.php` untuk validasi login. Tampilan ini menjadi antarmuka awal bagi pengguna sebelum mengakses halaman admin.
+
+![image](https://github.com/user-attachments/assets/f39eacbe-9c7f-49ca-883f-78ed8a39ad11)
+
+Gambar ini menampilkan file `UserSeeder.php` yang digunakan untuk mengisi data awal (dummy) ke dalam tabel `user_login`. File ini berada di direktori `app/Database/Seeds` dan berfungsi sebagai seeder dalam CodeIgniter 4. Fungsi `run()` dalam file ini memanggil model `UserModel` lalu menyisipkan satu record user dengan username `admin`, email `admin@email.com`, dan password yang sudah di-hash menggunakan `password_hash()` dengan algoritma default. Seeder ini membantu menyiapkan data user untuk keperluan pengujian modul login.
+
+![image](https://github.com/user-attachments/assets/5c74cf27-8269-436b-b098-a6eb296e2902)
+
+Gambar ini menampilkan tampilan halaman login yang diakses melalui URL `localhost:8080/user/login`. Form ini menyediakan dua input, yaitu untuk email dan password, serta satu tombol untuk mengirimkan data login. Tampilan form ini berasal dari file `login.php` yang sebelumnya ditampilkan dan merupakan bagian dari antarmuka pengguna untuk proses autentikasi. Jika email dan password yang dimasukkan sesuai dengan data di database, pengguna akan berhasil masuk ke sistem; jika tidak, akan ditampilkan pesan error. Tampilan ini menunjukkan bahwa sistem login sudah berjalan di browser secara lokal.
+
+![image](https://github.com/user-attachments/assets/9faa7d09-ac51-46c6-8fef-d0855c3b9919)
+
+Gambar ini menampilkan kode file `Auth.php` yang berada di direktori `app/Filters`, dan berfungsi sebagai filter untuk membatasi akses halaman hanya untuk pengguna yang sudah login. Fungsi `before()` akan mengecek apakah session `logged_in` sudah aktif. Jika belum, pengguna akan diarahkan otomatis ke halaman login (`/user/login`). Fungsi ini berguna untuk mengamankan halaman admin agar tidak bisa diakses tanpa autentikasi. Sedangkan fungsi `after()` masih kosong dan dapat digunakan jika ingin menambahkan aksi setelah request diproses. 
+
+![image](https://github.com/user-attachments/assets/9a922c44-fbc9-4f41-88df-f8b1b85711d8)
+
+Gambar ini menampilkan file `Filters.php` yang berada di direktori `app/Config`, yang digunakan untuk mendaftarkan alias filter dalam CodeIgniter 4. Pada bagian `public array $aliases`, terlihat bahwa filter `auth` telah ditambahkan dan diarahkan ke kelas `\App\Filters\Auth::class`. Dengan penambahan ini, filter `auth` bisa digunakan dengan mudah di pengaturan routing untuk membatasi akses halaman tertentu, seperti halaman admin, hanya untuk pengguna yang sudah login. Langkah ini merupakan bagian dari konfigurasi sistem proteksi akses menggunakan filter.
+
+![image](https://github.com/user-attachments/assets/30333d96-d0bd-434d-ba8f-d9816a3f45cf)
+
+Gambar ini menampilkan file `Routes.php` pada direktori `app/Config`, yang digunakan untuk mendefinisikan rute akses dalam aplikasi. Terlihat adanya penggunaan `group()` dengan filter `auth` untuk rute yang diawali dengan `/admin`. Ini berarti seluruh rute dalam grup tersebut, seperti `/admin/artikel`, `/admin/artikel/add`, `/admin/artikel/edit`, dan `/admin/artikel/delete`, hanya bisa diakses oleh pengguna yang sudah login. Penggunaan filter ini mengamankan halaman-halaman admin agar tidak bisa diakses secara langsung tanpa autentikasi.
+
+![image](https://github.com/user-attachments/assets/b8d1f8f3-d612-43a3-abec-e387549be046)
+
+Gambar ini menampilkan halaman admin yang muncul setelah pengguna berhasil login. Halaman ini menampilkan daftar artikel yang tersedia dalam sistem, lengkap dengan informasi seperti ID, judul artikel, status (misalnya "Draft"), serta tombol aksi untuk mengubah (Ubah) dan menghapus (Hapus) artikel. Di bagian atas juga terdapat menu navigasi untuk berpindah ke dashboard, melihat daftar artikel, atau menambahkan artikel baru. Tampilan ini menunjukkan bahwa sistem login dan proteksi akses menggunakan filter telah berhasil diterapkan, dan pengguna yang telah terautentikasi dapat mengakses dan mengelola konten dalam portal admin.
+
+![image](https://github.com/user-attachments/assets/731b092b-7376-4350-8161-f950ecd5e985)
+
+Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang muncul setelah pengguna mencoba masuk dengan email yang benar namun password yang salah. Sistem berhasil memvalidasi input dan menampilkan pesan kesalahan menggunakan `flashdata`, menandakan bahwa proses autentikasi telah berjalan sesuai logika yang diterapkan dalam controller `User.php`. Halaman login tetap ditampilkan untuk memberi kesempatan kepada pengguna untuk mengulang input yang benar.
+
+ ## Praktikum 5: Pagination dan Pencarian
+
+1. Membuat Pagination
+   
+   ![image](https://github.com/user-attachments/assets/47a26ccc-414e-4596-b808-2a57ec4fff00)
+
+    ![image](https://github.com/user-attachments/assets/58cf888e-d965-4513-ab11-0a3125bd5fed)
+
+    Gambar ini menunjukkan implementasi pagination pada method `admin_index()` dalam controller `Artikel.php`. Pagination digunakan untuk membatasi jumlah data artikel yang ditampilkan, dalam hal ini sebanyak 10 data per halaman dengan menggunakan `$model->paginate(10)`. Data `pager` juga disertakan dalam array `$data` untuk menampilkan navigasi halaman di view. Pendekatan ini membuat tampilan daftar artikel lebih terstruktur dan efisien saat menangani jumlah data yang besar.
+
+2. Membuat Pencarian
+
+   ![image](https://github.com/user-attachments/assets/459a9e81-638d-4b65-9423-9095cf7edcb4)
+
+   ![image](https://github.com/user-attachments/assets/52d2b8ea-a4f8-4bed-b226-2e57c5f85e1f)
+
+   ![image](https://github.com/user-attachments/assets/92613af8-65b0-4670-8f70-f997ef4542ef)
+
+   ![image](https://github.com/user-attachments/assets/3b1c28ef-0f46-4acd-9fc9-8a127b65d0cd)
+
+   Penjelasan ini menggambarkan proses implementasi fitur pencarian artikel pada halaman admin. Method `admin_index()` dalam controller `Artikel.php` dimodifikasi untuk menangkap input pencarian melalui `$this->request->getVar('q')`, yang kemudian digunakan sebagai filter data artikel. Pada view `admin_index.php`, ditambahkan form pencarian menggunakan method `GET` dan input teks untuk menerima kata kunci. Data yang ditampilkan dalam tabel disesuaikan dengan hasil pencarian, dan pagination tetap berjalan dengan membawa parameter pencarian, sehingga hasil tetap relevan saat berpindah halaman. Fitur ini mempermudah admin dalam menemukan artikel tertentu secara efisien.
+
+ ## Praktikum 6: Upload File Gambar
+
+1. Upload Gambar pada Artikel
+   
+   ![image](https://github.com/user-attachments/assets/e4d9c682-a6c0-4205-85eb-66513cafd820)
+   
+   ![image](https://github.com/user-attachments/assets/a0e92bbf-94a9-44bd-94bc-8d15c3e6748c)
+
+2. Ujicoba file upload dengan mengakses menu tambah artikel.
+
+   ![image](https://github.com/user-attachments/assets/75b4bbce-f695-4c54-a64c-c01308d79f2b)
+
+    Kode ini menunjukkan bahwa fitur tambah artikel dengan upload gambar telah berhasil diimplementasikan. Pada controller `Artikel.php`, method `add()` menangani validasi input judul, pengambilan file gambar dengan `$this->request->getFile('gambar')`, pengecekan validitas file, serta penyimpanannya ke folder `public/gambar`. Di view `form_add.php`, tag `<form>` telah menggunakan `enctype="multipart/form-data"` dan dilengkapi input `type="file"` dengan `name="gambar"` untuk mendukung proses upload. Saat mengakses URL `/admin/artikel/add`, form tampil lengkap dengan isian judul, isi, dan upload gambar. Ketika form dikirim, data artikel dan gambar disimpan ke database dan direktori secara otomatis, memungkinkan admin menambahkan artikel beserta gambarnya langsung dari halaman web.
