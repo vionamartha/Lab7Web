@@ -298,3 +298,15 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
    ![image](https://github.com/user-attachments/assets/75b4bbce-f695-4c54-a64c-c01308d79f2b)
 
     Kode ini menunjukkan bahwa fitur tambah artikel dengan upload gambar telah berhasil diimplementasikan. Pada controller `Artikel.php`, method `add()` menangani validasi input judul, pengambilan file gambar dengan `$this->request->getFile('gambar')`, pengecekan validitas file, serta penyimpanannya ke folder `public/gambar`. Di view `form_add.php`, tag `<form>` telah menggunakan `enctype="multipart/form-data"` dan dilengkapi input `type="file"` dengan `name="gambar"` untuk mendukung proses upload. Saat mengakses URL `/admin/artikel/add`, form tampil lengkap dengan isian judul, isi, dan upload gambar. Ketika form dikirim, data artikel dan gambar disimpan ke database dan direktori secara otomatis, memungkinkan admin menambahkan artikel beserta gambarnya langsung dari halaman web.
+
+ ## Praktikum 7: Relasi Tabel dan Query Builder
+
+ 1. Membuat Tabel Kategori
+    
+    ![image](https://github.com/user-attachments/assets/e61d7103-3fba-4af4-b321-79da6658b410)
+
+ 2. 
+    ![image](https://github.com/user-attachments/assets/f64d8c0f-4ae4-4fda-8f0d-d68da18423b0)
+
+
+   
