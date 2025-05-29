@@ -1,0 +1,48 @@
+# ===============================
+# SYSTEM / OS FILES
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# ENVIRONMENT CONFIG
+.env
+.env.*
+
+# ===============================
+# COMPOSER DEPENDENCIES
+/vendor/
+composer.lock
+
+# ===============================
+# CACHE, LOG, SESSION, DEBUGBAR
+writable/*
+!writable/.htaccess
+
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/debugbar/*
+
+!writable/cache/index.html
+!writable/logs/index.html
+!writable/session/index.html
+!writable/debugbar/index.html
+
+# Ignore debugbar output JSON
+*.json
+
+# ===============================
+# PUBLIC FILES
+public/gambar/
+!public/gambar/.gitkeep
+
+# ===============================
+# NODE / FRONTEND
+node_modules/
+package-lock.json
+
+# ===============================
+# VS CODE / IDE SETTINGS
+.vscode/
+*.code-workspace
