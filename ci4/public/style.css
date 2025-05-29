@@ -1,8 +1,6 @@
 /* import google font */
-@import
-url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-@import
-url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
 
 /* Reset CSS */
 * {
@@ -21,6 +19,9 @@ body {
     width: 980px;
     margin: 0 auto;
     box-shadow: 0 0 1em #cccccc;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* header */
@@ -80,6 +81,7 @@ nav a:hover {
     float: left;
     width: 640px;
     padding: 20px;
+    flex: 1;
 }
 
 /* sidebar area */
@@ -87,6 +89,14 @@ nav a:hover {
     float: left;
     width: 260px;
     padding: 20px;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+#sidebar .widget-box {
+    margin-left: 10px;
+    margin-right: 0;
 }
 
 /* widget */
@@ -125,6 +135,30 @@ nav a:hover {
     line-height: 25px;
 }
 
+.widget-box .card-header {
+    background-color: #428bca !important;
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 14px;
+}
+
+.widget-box .list-group-item {
+    font-size: 14px;
+    padding: 10px 14px;
+}
+
+.widget-box .card-body {
+    padding: 12px 14px;
+}
+
+.widget-box .card-text {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
 /* footer */
 footer {
     clear: both;
@@ -139,8 +173,6 @@ footer {
     float: left;
     width: 33.333333%;
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     padding: 0 10px;
     text-align: center;
 }
@@ -164,11 +196,10 @@ box img {
     border-radius: 50%;
 }
 
+/* row and entry */
 .row {
     margin: 0 -10px;
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 .row:after,
@@ -213,68 +244,55 @@ box img {
     float: right;
 }
 
-
-.widget-box .card-header {
-    background-color: #428bca !important;
-    color: #fff !important;
-    font-weight: bold;
-    font-size: 15px;       
-    padding: 10px 14px;    
-}
-
-.widget-box .list-group-item {
-    font-size: 14px;        
-    padding: 10px 14px;
-}
-
-.widget-box .card-body {
-    padding: 12px 14px;
-}
-
-.widget-box .card-text {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-#sidebar {
-    font-size: 14px;
-}
-
-#sidebar .widget-box {
-    margin-left: 10px;    
-    margin-right: 0;
-}
-
-#sidebar {
-    padding-left: 5px;
-    padding-right: 0;
-}
-
+/* sidebar title */
 .sidebar-title {
-    font-size: 1.2rem;       
-    color: #222;             
+    font-size: 1.2rem;
+    color: #222;
     border-bottom: 2px solid #ddd;
     padding-bottom: 6px;
     margin-bottom: 15px;
 }
 
-html, body {
-    height: 100%;
+/* === START LOGIN PAGE STYLING === */
+#login-wrapper {
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-#container {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+#login-wrapper h1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
 }
 
-#main {
-    flex: 1;
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
+.btn {
+    width: 100px;
+    padding: 10px;
+    background: #ccc;
+    border: none;
+    border-radius: 4px;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
 
-
-
+.btn:hover {
+    background: #bbb;
+}
+/* === END LOGIN PAGE STYLING === */
 

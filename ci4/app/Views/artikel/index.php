@@ -9,13 +9,15 @@
                 </a>
             </h2>
 
+            <p>Kategori: <?= $row['nama_kategori']; ?></p>
+
             <?php if (!empty($row['gambar']) && file_exists(FCPATH . 'gambar/' . $row['gambar'])): ?>
                 <img src="<?= base_url('/gambar/' . $row['gambar']); ?>" alt="<?= $row['judul']; ?>">
             <?php else: ?>
                 <p><em>(Gambar tidak tersedia)</em></p>
             <?php endif; ?>
 
-            <p><?= nl2br($row['isi']); ?></p> 
+            <p><?= nl2br(substr($row['isi'], 0, 200)); ?><?= (strlen($row['isi']) > 200) ? '...' : ''; ?></p>
         </article>
         <hr class="divider" />
     <?php endforeach; ?>
