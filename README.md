@@ -305,8 +305,48 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
     
     ![image](https://github.com/user-attachments/assets/e61d7103-3fba-4af4-b321-79da6658b410)
 
- 2. 
+ 2. Mengubah Tabel Artikel
+    
     ![image](https://github.com/user-attachments/assets/f64d8c0f-4ae4-4fda-8f0d-d68da18423b0)
+    
+ 4. Membuat Model Kategori
+    
+    ![image](https://github.com/user-attachments/assets/94573f98-5f61-4593-947a-649189eaeccd)
+
+ 6. Memodifikasi Model Artikel
+
+    ![image](https://github.com/user-attachments/assets/68cac45d-5394-4d5b-91e7-e36a9a9a11ac)
+
+    
+ 8. Memodifikasi Controller Artikel
+
+    ![image](https://github.com/user-attachments/assets/d1810432-0666-47a2-86df-f4641e8c8ccd)
+
+    ![image](https://github.com/user-attachments/assets/a6348bbf-6779-47bf-80a3-73af8846b564)
+
+    ![image](https://github.com/user-attachments/assets/3e88f4df-f651-4f13-8c2d-8328c0727d6f)
+
+    ![image](https://github.com/user-attachments/assets/9f0fc1a2-29c8-4919-bf17-01feb2b67810)
+
+ 10. Memodifikasi View
+     
+    index.php
+    
+    ![image](https://github.com/user-attachments/assets/51b094e0-fc09-48bc-aa3f-6f4927570eaa)
+
+    form_add.php
+    
+    form_edit.php
+ 12. Testing 
+    Melakukan uji coba untuk memastikan semua fungsi berjalan dengan baik:
+    - Menampilkan daftar artikel dengan nama kategori.
+    - Menambah artikel baru dengan memilih kategori.
+    - Mengedit artikel dan mengubah kategorinya.
+    - Menghapus artikel. 
+
+    
+  
+
 
 
    
