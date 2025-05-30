@@ -379,24 +379,37 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
      
         ![image](https://github.com/user-attachments/assets/3bd4f1d8-6608-4aec-a411-c9981f0b961a)
 
+        Halaman admin menampilkan daftar artikel lengkap dengan nama kategori masing-masing. Tersedia fitur pencarian berdasarkan judul artikel dan filter kategori untuk memudahkan pengelolaan data artikel.
+
      2. Menambah artikel baru dengan memilih kategori.
 
         ![image](https://github.com/user-attachments/assets/f55f5ae7-17c6-4e1c-ba1c-1fa3602ea56f)
+   
+        Form tambah artikel menyediakan kolom untuk mengisi judul, isi, dan dropdown kategori. Hal ini memungkinkan pengkategorian artikel secara langsung saat penambahan data baru.
 
         ![image](https://github.com/user-attachments/assets/6d8d90fc-05de-47b2-9721-3beb37a582a5)
 
+        Artikel baru yang sudah dibuat langsung muncul di daftar artikel dengan kategori yang sudah dipilih sebelumnya, menandakan proses penyimpanan dan pengkategorian berhasil.
 
      3. Mengedit artikel dan mengubah kategorinya.
 
         ![image](https://github.com/user-attachments/assets/0e1c33bf-2d4c-4fa1-bdcd-e36f542fa435)
+   
+        Form edit artikel memungkinkan perubahan judul, isi, dan kategori artikel. Dropdown kategori otomatis menampilkan kategori saat ini sehingga perubahan kategori bisa dilakukan dengan mudah.
 
         ![image](https://github.com/user-attachments/assets/981dfb2b-194e-4a5e-8aac-01bc3813d74d)
+
+        Setelah diedit, artikel muncul kembali di daftar dengan kategori yang telah diperbarui, menunjukkan fungsi edit berjalan dengan baik.
         
      4. Menghapus artikel.
         
         ![image](https://github.com/user-attachments/assets/0a9896fe-8c8a-4b38-bf59-3f5251319121)
+   
+        Fitur hapus artikel dilengkapi dengan dialog konfirmasi untuk mencegah penghapusan tidak disengaja. Setelah konfirmasi, artikel yang dipilih dihapus dari database.
 
         ![image](https://github.com/user-attachments/assets/4961ee1c-9747-4e43-94e5-6ce16e9121c6)
+
+        Setelah artikel dihapus, daftar artikel otomatis diperbarui dan artikel yang dihapus tidak lagi muncul, menandakan proses penghapusan berhasil.
 
 
 
