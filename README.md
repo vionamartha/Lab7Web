@@ -303,49 +303,101 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
 
  1. Membuat Tabel Kategori
     
+    Langkah pertama adalah membuat tabel kategori di database menggunakan perintah SQL. Tabel ini berfungsi untuk menyimpan data kategori artikel, yang terdiri dari kolom id_kategori, nama_kategori, dan slug_kategori. Tabel ini akan menjadi acuan untuk relasi one-to-many dengan tabel artikel.
+    
     ![image](https://github.com/user-attachments/assets/e61d7103-3fba-4af4-b321-79da6658b410)
 
  2. Mengubah Tabel Artikel
+
+      Setelah tabel kategori tersedia, tabel artikel dimodifikasi dengan menambahkan kolom id_kategori dan menetapkan foreign key yang mengarah ke kategori. Tujuan langkah ini adalah membangun relasi antar tabel agar setiap artikel terhubung dengan salah satu kategori.
     
     ![image](https://github.com/user-attachments/assets/f64d8c0f-4ae4-4fda-8f0d-d68da18423b0)
     
- 4. Membuat Model Kategori
+ 3. Membuat Model Kategori
     
-    ![image](https://github.com/user-attachments/assets/94573f98-5f61-4593-947a-649189eaeccd)
-
- 6. Memodifikasi Model Artikel
-
-    ![image](https://github.com/user-attachments/assets/68cac45d-5394-4d5b-91e7-e36a9a9a11ac)
-
+     Pada tahap ini, dibuat file model KategoriModel.php di direktori app/Models. Model ini digunakan untuk mengelola interaksi dengan tabel kategori, termasuk pengambilan dan penyimpanan data kategori melalui fitur Query Builder CodeIgniter.
     
- 8. Memodifikasi Controller Artikel
+    ![image](https://github.com/user-attachments/assets/fabbc041-a61c-4f58-a020-4a350ab0fab8)
 
-    ![image](https://github.com/user-attachments/assets/d1810432-0666-47a2-86df-f4641e8c8ccd)
+ 4. Memodifikasi Model Artikel
+    
+    Model ArtikelModel.php dimodifikasi dengan menambahkan method getArtikelDenganKategori() yang melakukan join antara tabel artikel dan kategori. Method ini memungkinkan pengambilan data artikel beserta nama kategorinya secara langsung.
+    
+    ![image](https://github.com/user-attachments/assets/8f32429b-b3ea-4158-9dcd-b6e63d966c3c)
 
-    ![image](https://github.com/user-attachments/assets/a6348bbf-6779-47bf-80a3-73af8846b564)
+ 5. Memodifikasi Controller Artikel
 
-    ![image](https://github.com/user-attachments/assets/3e88f4df-f651-4f13-8c2d-8328c0727d6f)
+      File controller Artikel.php kemudian diperbarui pada bagian method index() dan admin_index() untuk memanfaatkan relasi yang telah dibuat. Controller ini mengatur pengambilan data artikel dengan kategori serta menerapkan fitur pencarian dan filter berdasarkan kategori di halaman admin.
 
-    ![image](https://github.com/user-attachments/assets/9f0fc1a2-29c8-4919-bf17-01feb2b67810)
+    ![image](https://github.com/user-attachments/assets/f3f44e6a-e53e-4cd9-a682-a9b630c33058)
 
- 10. Memodifikasi View
+    ![image](https://github.com/user-attachments/assets/a1fd0c69-9653-4e26-8139-646cbeea307e)
+
+    ![image](https://github.com/user-attachments/assets/34da7b45-b965-41ad-8b40-2a8c503a3dd9)
+
+    ![image](https://github.com/user-attachments/assets/63b508f0-a685-42c1-9355-49f7a251bba0)
+
+    ![image](https://github.com/user-attachments/assets/ffb6f1b7-eb6e-48d2-864a-755750d7ce81)
+
+ 6. Memodifikasi View
+
+     index.php
+    
+     View index.php disesuaikan untuk menampilkan daftar artikel beserta nama kategori masing-masing. Penyesuaian ini membuat halaman depan lebih informatif karena kategori artikel ditampilkan secara langsung.
      
-    index.php
-    
-    ![image](https://github.com/user-attachments/assets/51b094e0-fc09-48bc-aa3f-6f4927570eaa)
+     ![image](https://github.com/user-attachments/assets/6bd87413-57a1-4814-a6bf-e4a8ca5854a1)
 
-    form_add.php
+     admin_index.php
     
-    form_edit.php
- 12. Testing 
+     Halaman admin juga diperbarui dengan menampilkan kolom kategori pada tabel artikel. Selain itu, ditambahkan fitur pencarian dan dropdown filter kategori untuk memudahkan pengelolaan artikel berdasarkan kategori tertentu.
+    
+     ![image](https://github.com/user-attachments/assets/50171f52-279f-43e5-a56c-f7220259e2ab)
+
+     ![image](https://github.com/user-attachments/assets/6a1ec5ac-2a27-4947-ae4f-f5c87ef742ec)
+
+     ![image](https://github.com/user-attachments/assets/ab08225e-d080-4cb0-b34d-1c67718ac2e3)
+
+     form_add.php
+    
+     Pada form penambahan artikel, ditambahkan dropdown untuk memilih kategori. Dengan fitur ini, setiap artikel yang ditambahkan dapat langsung dikategorikan ke dalam salah satu kategori yang tersedia.
+    
+     ![image](https://github.com/user-attachments/assets/e84d7bb6-9285-48f4-8574-517ae2dbe59f)
+
+     ![image](https://github.com/user-attachments/assets/52e280bb-5696-41e8-a405-b2febd0228e5)
+
+     form_edit.php
+    
+     Formulir edit artikel disesuaikan dengan menampilkan dropdown kategori yang secara otomatis memilih kategori yang sedang digunakan artikel tersebut. Ini memudahkan dalam proses pengeditan dan pengubahan kategori artikel.
+    
+     ![image](https://github.com/user-attachments/assets/d1270539-1c8f-43ae-b039-6b31b367a4dc)
+
+     ![image](https://github.com/user-attachments/assets/93b81fec-f610-4000-ab26-6747c6b4c479)
+
+ 7. Testing 
     Melakukan uji coba untuk memastikan semua fungsi berjalan dengan baik:
-    - Menampilkan daftar artikel dengan nama kategori.
-    - Menambah artikel baru dengan memilih kategori.
-    - Mengedit artikel dan mengubah kategorinya.
-    - Menghapus artikel. 
+     1. Menampilkan daftar artikel dengan nama kategori.
+     
+        ![image](https://github.com/user-attachments/assets/3bd4f1d8-6608-4aec-a411-c9981f0b961a)
 
-    
-  
+     2. Menambah artikel baru dengan memilih kategori.
+
+        ![image](https://github.com/user-attachments/assets/f55f5ae7-17c6-4e1c-ba1c-1fa3602ea56f)
+
+        ![image](https://github.com/user-attachments/assets/6d8d90fc-05de-47b2-9721-3beb37a582a5)
+
+
+     3. Mengedit artikel dan mengubah kategorinya.
+
+        ![image](https://github.com/user-attachments/assets/0e1c33bf-2d4c-4fa1-bdcd-e36f542fa435)
+
+        ![image](https://github.com/user-attachments/assets/981dfb2b-194e-4a5e-8aac-01bc3813d74d)
+        
+     4. Menghapus artikel.
+        
+        ![image](https://github.com/user-attachments/assets/0a9896fe-8c8a-4b38-bf59-3f5251319121)
+
+        ![image](https://github.com/user-attachments/assets/4961ee1c-9747-4e43-94e5-6ce16e9121c6)
+
 
 
 
