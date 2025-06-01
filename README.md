@@ -462,5 +462,9 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
 
    - CRUD pakai AJAX — seluruh operasi tanpa reload halaman sehingga pengalaman pengguna lebih lancar dan cepat.
 
+## Praktikum 9: Implementasi AJAX Pagination dan Search
 
+1. Modifikasi Controller Artikel
+2. Modifikasi View (admin_index.php)
+3. 
    
