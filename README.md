@@ -412,6 +412,55 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
         Setelah artikel dihapus, daftar artikel otomatis diperbarui dan artikel yang dihapus tidak lagi muncul, menandakan proses penghapusan berhasil.
 
 
+## Praktikum 8: AJAX
+
+1. Menambahkan Pustaka jQuery.
+
+   Pada tahap ini dilakukan penambahan file pustaka jQuery ke dalam folder public/assets/js sebagai syarat utama agar fungsi AJAX dapat digunakan untuk komunikasi asynchronous antara client dan server.
+   
+   ![image](https://github.com/user-attachments/assets/bf642241-ea59-4574-9b48-e57e4f59587a)
+
+1. Membuat AJAX Controller
+
+    Membuat controller khusus yang berisi fungsi-fungsi untuk menangani request AJAX seperti mengambil data artikel, menghapus, mengubah, dan menambah artikel dalam format JSON tanpa reload halaman.
+   
+   ![image](https://github.com/user-attachments/assets/09e8f891-895d-4ec8-b9d7-96bb68e9491f)
+
+   ![image](https://github.com/user-attachments/assets/c544e811-8804-4055-87d9-1b6bde3b89e8)
+
+3. Membuat View
+
+   Membuat tampilan halaman web yang menampilkan tabel data artikel serta form modal untuk tambah dan ubah artikel. Pada view ini juga diterapkan script jQuery untuk mengambil dan menampilkan data secara dinamis menggunakan AJAX.
+   
+   ![image](https://github.com/user-attachments/assets/8a5f1ceb-5106-4d5d-a07b-15cad25ddd37)
+
+   ![image](https://github.com/user-attachments/assets/b7484170-53ba-4853-aaf9-b9f4460fc56e)
+
+   ![image](https://github.com/user-attachments/assets/9cde8629-6b0b-4a0f-85f0-a7d8194f874d)
+
+4. Tambahan fungsi tambah dan ubah data
+
+   Menambahkan fitur form interaktif untuk menambah dan mengubah data artikel menggunakan modal yang terhubung dengan controller AJAX, sehingga perubahan data dapat dilakukan secara real-time tanpa reload halaman.
+   
+   ![image](https://github.com/user-attachments/assets/b05d4083-ab1b-474a-afd9-275aee7643e0)
+
+   ![image](https://github.com/user-attachments/assets/7468db5d-f760-4494-8d46-d21dcabb18fc)
+
+6. improvisasi yang ditambahkan:
+
+   - Toggle status langsung di tabel — memudahkan mengubah status artikel (draft/publish) tanpa buka form.
+
+     ![image](https://github.com/user-attachments/assets/bbe70c8f-f302-480c-b7fa-5dcd189d4757)
+
+   - Toast notification — memberi notifikasi aksi berhasil/gagal yang lebih user-friendly daripada alert biasa.
+
+     ![image](https://github.com/user-attachments/assets/3663f850-9752-4c6c-bbb8-9f4e09cbcdd5)
+
+   - Validasi form dengan Bootstrap — memastikan input wajib terisi sebelum submit.
+
+     ![image](https://github.com/user-attachments/assets/4c441b10-237a-4522-984f-7d1ffdd98b4b)
+
+   - CRUD pakai AJAX — seluruh operasi tanpa reload halaman sehingga pengalaman pengguna lebih lancar dan cepat.
 
 
    
