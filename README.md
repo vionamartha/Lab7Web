@@ -535,8 +535,44 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
 
    ![image](https://github.com/user-attachments/assets/799e9558-3e65-42c6-999a-c37ae1923786)
 
-   
 
+
+## Praktikum 11: VueJS
+
+**1. Struktur Direktory**
+
+   Pada langkah pertama, terlihat struktur proyek Vue.js. Di dalam index.html, file ini menyertakan dua script eksternal yaitu Vue.js dan Axios. Vue.js digunakan untuk mengelola data dan interaktivitas, sedangkan Axios digunakan untuk melakukan HTTP request ke API backend. Di bagian <body>, terdapat tombol "Tambah Data" yang memiliki event @click="tambah" yang berfungsi untuk menampilkan form modal untuk menambah artikel.
+
+   ![image](https://github.com/user-attachments/assets/04d6cd8f-ff20-4aa2-8b43-06a2e5a9a173)
+
+**2. Menampilkan data**
+
+   **index.html**
+
+   Pada code index.html berikut, terdapat form modal untuk input data artikel yang diaktifkan ketika tombol "Tambah Data" diklik. Form ini menggunakan Vue.js dengan v-if="showForm" untuk menampilkan atau menyembunyikan modal, serta mengikat data input melalui v-model="formData" untuk mengambil nilai dari inputan. Form ini berisi input untuk judul, isi, dan dropdown untuk status. Ketika form disubmit, data akan diproses oleh metode saveData() yang mencegah pengiriman form secara default dengan @submit.prevent="saveData".
+   
+   ![image](https://github.com/user-attachments/assets/de9015d6-60a8-4d96-b207-915192660b06)
+
+   **app.js**
+
+   Di dalam app.js, Vue.js mengelola data dan logika aplikasi. data() berfungsi untuk mendeklarasikan properti seperti artikel, formData, dan statusOptions. Metode loadData() menggunakan Axios untuk mengambil data artikel dari API backend dan menampilkannya di dalam tabel. Metode tambah() digunakan untuk membuka form modal dan mempersiapkan form untuk menambah artikel baru. Metode edit() digunakan untuk mengubah artikel yang sudah ada, sedangkan metode saveData() berfungsi untuk menyimpan data ke backend, baik untuk menambah atau memperbarui artikel, tergantung apakah artikel memiliki ID atau tidak.
+   
+   ![image](https://github.com/user-attachments/assets/e220a5a2-5411-4cf1-9e82-8733ce0a2a40)
+
+   **style.css**
+
+   Code style.css menunjukkan styling yang diterapkan pada elemen-elemen di halaman. CSS di dalam file style.css mengatur tampilan tabel, form, tombol, dan modal. Kelas #app mengatur lebar aplikasi, sedangkan #form-data mengatur lebar form. Styling untuk modal dan tombol juga didefinisikan di sini, misalnya #btn-tambah untuk tombol tambah data yang memiliki warna latar belakang biru, dan modal diatur untuk tampil di tengah layar dengan latar belakang transparan.
+
+   ![image](https://github.com/user-attachments/assets/7d72d816-54db-4797-9b52-788adf08a703)
+
+**3. Hasil Output**
+
+   Hasil Output menunjukkan aplikasi berjalan di browser dan menampilkan daftar artikel dalam bentuk tabel. Di sini, artikel yang ditampilkan adalah data yang diambil dari API menggunakan Axios. Tabel menampilkan kolom ID, Judul, Status, dan Aksi (Edit dan Hapus). Pengguna dapat mengedit atau menghapus artikel dengan mengklik tombol yang sesuai, yang memicu metode edit() atau hapus() di Vue.js.
+   
+   ![image](https://github.com/user-attachments/assets/ba228f53-60bb-4d21-85e5-fd037fdd3aab)
+
+
+ 
 
 
 
