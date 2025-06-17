@@ -465,6 +465,23 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
 ## Praktikum 9: Implementasi AJAX Pagination dan Search
 
 1. Modifikasi Controller Artikel
-2. Modifikasi View (admin_index.php)
-3. 
    
+   Modifikasi yang dilakukan pada method `admin_index()` di controller `Artikel.php` adalah untuk mengembalikan data dalam format JSON ketika request yang diterima adalah AJAX. Pada awalnya, controller ini mengatur data artikel yang akan ditampilkan, termasuk kategori dan pencarian berdasarkan judul. Setelah itu, jika request yang diterima adalah AJAX, data artikel yang sudah diproses dikembalikan dalam format JSON menggunakan `return $this->response->setJSON($data)`. Jika bukan AJAX, data akan dikirim untuk ditampilkan di tampilan view biasa. Dalam implementasi ini, pagination juga diterapkan menggunakan method `paginate()`, dan data tersebut diteruskan dalam response untuk ditampilkan atau diproses lebih lanjut pada client-side, memastikan pengambilan data lebih dinamis dengan menggunakan AJAX.
+   
+   ![image](https://github.com/user-attachments/assets/c08bb8ac-cd10-4c33-b7c6-b05f93206b30)
+
+2. Modifikasi View (admin_index.php)
+
+   admin_index.php dimodifikasi untuk menggunakan jQuery dalam menangani tampilan artikel dan pagination. Pertama, kode yang sebelumnya menampilkan tabel artikel dan pagination secara langsung dihapus. Kemudian, elemen kosong seperti #article-container dan #pagination-container ditambahkan untuk menampilkan data artikel dan pagination yang diperoleh dari request AJAX. Selanjutnya, kode jQuery ditambahkan untuk melakukan request AJAX ketika pencarian atau perubahan kategori dilakukan. Dengan cara ini, artikel dan pagination akan diperbarui secara dinamis tanpa perlu me-refresh seluruh halaman.
+
+   ![image](https://github.com/user-attachments/assets/da87aaa1-0fa3-4f6f-ac85-7c4cb620ec8b)
+
+
+3. Tampilan indikator loading saat data sedang diambil dari server
+   
+   ![image](https://github.com/user-attachments/assets/6d075e5a-9fb6-4480-9071-105d07d96e5f)
+
+4. Tampilan fitur sorting (mengurutkan artikel berdasarkan judul, dll.)
+
+   ![image](https://github.com/user-attachments/assets/0c8a2370-6c89-4d24-a5a7-9204c80c97b8)
+
