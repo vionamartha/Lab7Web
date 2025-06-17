@@ -485,3 +485,64 @@ Gambar ini menampilkan halaman login dengan pesan error "Password salah." yang m
 
    ![image](https://github.com/user-attachments/assets/0c8a2370-6c89-4d24-a5a7-9204c80c97b8)
 
+## Praktikum 10: API
+
+1. Membuat REST Controller
+
+   Pada praktikum ini, langkah pertama adalah membuat file REST Controller bernama `Post.php` di direktori `app\Controllers`, yang berisi lima method untuk menangani operasi dasar pada data artikel di database. Method `index()` digunakan untuk menampilkan semua data artikel, `create()` untuk menambahkan artikel baru, `show()` untuk menampilkan artikel berdasarkan ID tertentu, `update()` untuk mengubah data artikel yang sudah ada, dan `delete()` untuk menghapus artikel berdasarkan ID. Setiap method mengembalikan respon dalam format JSON, dengan status yang sesuai untuk operasi yang dilakukan, seperti berhasil ditambahkan, diubah, atau dihapus.
+
+   ![image](https://github.com/user-attachments/assets/62bec8bf-a96c-4301-8386-497e8cb58344)
+
+2. Membuat Routing REST API
+   
+   Selanjutnya yaitu menambahkan route untuk REST API di file `Routes.php` yang terletak di direktori `app\Config`. Kode `$routes->resource('post');` digunakan untuk mendefinisikan resource route yang mengarahkan ke controller `Post.php` yang sudah dibuat sebelumnya. Kemudian, untuk memeriksa route yang telah dibuat, perintah `php spark routes` digunakan di terminal untuk menampilkan daftar route yang ada. Hasil dari perintah ini akan menunjukkan berbagai metode HTTP (GET, POST, PATCH, DELETE) yang terkait dengan route `post`, seperti `GET` untuk menampilkan data artikel, `POST` untuk menambah artikel baru, dan seterusnya. 
+
+   ![image](https://github.com/user-attachments/assets/e9f57c20-a350-42a0-a176-e829caba3bcc)
+
+   ![image](https://github.com/user-attachments/assets/c7c74559-0720-4ea3-af4f-7286b99815da)
+
+3. Testing REST API CodeIgniter
+
+   **Menampilkan Semua Data**
+   
+   Postman digunakan untuk mengirimkan request GET ke endpoint http://localhost:8080/post. Ini bertujuan untuk menampilkan semua data artikel dari database melalui REST API yang sudah dibuat. Pengujian berhasil jika response yang diterima berupa seluruh data artikel dalam format JSON.
+   
+   ![image](https://github.com/user-attachments/assets/3e4e83da-766a-43b0-b9cd-746c076f3cb7)
+   
+   ![image](https://github.com/user-attachments/assets/d8cf8de2-8e17-4a5e-ae14-156ad5f9613c)
+
+   **Menampilkan Data Spesifik**
+
+   Request GET dengan ID artikel ditambahkan pada URL, misalnya http://localhost:8080/post/19, untuk menampilkan data artikel dengan ID 19. Jika data artikel ditemukan, maka informasi terkait artikel tersebut akan dikembalikan dalam format JSON.
+
+   ![image](https://github.com/user-attachments/assets/51993727-fa7b-4d8b-84a5-55c7bce67b4d)
+
+   **Mengubah Data**
+
+    Menggunakan metode PUT untuk mengubah data artikel. URL diatur dengan menambahkan ID artikel yang ingin diubah, misalnya http://localhost:8080/post/19. Pada tab body, data yang ingin diubah (misalnya judul dan isi) dimasukkan dengan menggunakan format x-www-form-urlencoded. Pengujian berhasil jika response menunjukkan status 200 dengan pesan yang menyatakan bahwa data artikel berhasil diubah.
+
+   ![image](https://github.com/user-attachments/assets/3877ecb0-5650-4d90-961f-f3beef851ef8)
+
+   **Menambahkan Data**
+
+   Metode POST digunakan untuk menambahkan data artikel baru ke dalam database. URL yang digunakan adalah http://localhost:8080/post, dan data artikel baru dimasukkan pada tab Body dengan format x-www-form-urlencoded. Pengujian berhasil jika response menunjukkan status 201 dan pesan sukses bahwa data artikel berhasil ditambahkan.
+
+   ![image](https://github.com/user-attachments/assets/aa62890b-9a6b-4bcb-b062-2f846045a6a7)
+
+   **Menghapus Data**
+
+   Gambar berikut menunjukkan pengujian metode DELETE untuk menghapus data artikel tertentu. URL yang digunakan adalah http://localhost:8080/post/19, di mana artikel dengan ID 19 akan dihapus. Pengujian berhasil jika response menunjukkan status 200 dan pesan sukses bahwa data artikel berhasil dihapus.
+
+   ![image](https://github.com/user-attachments/assets/799e9558-3e65-42c6-999a-c37ae1923786)
+
+   
+
+
+
+
+
+
+
+
+
+
