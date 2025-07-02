@@ -1,0 +1,191 @@
+/* Body dan Background */
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar dan Footer */
+header, footer {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Container utama full lebar */
+.container-ajax {
+    max-width: 100vw;
+    width: 100vw;
+    margin: 40px 0 60px 0;
+    padding: 0 30px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+/* Wrapper untuk main dan sidebar */
+#wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+    width: 100%;
+    padding: 25px 0;
+    box-sizing: border-box;
+}
+
+/* Konten utama artikel */
+#main {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Sidebar kanan */
+#sidebar {
+    width: 280px;
+    background-color: #e9f1ff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Widget box */
+.widget-box {
+    margin-bottom: 25px;
+}
+
+.widget-box .title {
+    font-weight: 700;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.widget-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.widget-box ul li {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.widget-box ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+.widget-box p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #3a3a3a;
+}
+
+/* Styling tabel */
+#main table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+table thead {
+    background-color: #c7dfff;
+    font-weight: 700;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Tombol Edit */
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    color: #212529;
+}
+
+/* Tombol Delete */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #b02a37;
+    border-color: #a52834;
+}
+
+/* Label status */
+.badge.bg-success {
+    background-color: #198754 !important;
+    font-weight: 600;
+}
+
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    #wrapper {
+        flex-direction: column;
+    }
+    #sidebar {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+/* Footer styling */
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 0 0 8px 8px;
+    margin-top: 40px;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

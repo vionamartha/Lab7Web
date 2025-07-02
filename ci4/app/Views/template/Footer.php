@@ -1,25 +1,12 @@
-</section>
-        <aside id="sidebar">
-            <div class="widget-box">
-                <h3 class="title">Widget Header</h3>
-                <ul>
-                    <li><a href="#">Widget Link</a></li>
-                    <li><a href="#">Widget Link</a></li>
-                </ul>
-            </div>
-            <div class="widget-box">
-                <h3 class="title">Widget Text</h3>
-                <p>
-                    Vestibulum lorem elit, iaculis in nisl volutpat, malesuada tincidunt arcu.
-                    Proin in leo fringilla, vestibulum mi porta, faucibus felis.
-                    Integer pharetra est nunc, nec pretium nunc pretium ac.
-                </p>
-            </div>
-        </aside>
-    </section>
-    <footer>
-        <p>&copy; 2025 - Universitas Pelita Bangsa</p>
-    </footer>
-</div>
+</div> <!-- tutup page-content -->
+
+<footer>
+    &copy; <?= date('Y') ?> - Universitas Pelita Bangsa
+</footer>
+
+<!-- JS Bootstrap dan jQuery bisa di-include di footer -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

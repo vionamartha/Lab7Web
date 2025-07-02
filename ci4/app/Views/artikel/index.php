@@ -17,7 +17,7 @@
                 <p><em>(Gambar tidak tersedia)</em></p>
             <?php endif; ?>
 
-            <p><?= nl2br(substr($row['isi'], 0, 200)); ?><?= (strlen($row['isi']) > 200) ? '...' : ''; ?></p>
+            <p><?= substr(strip_tags($row['isi']), 0, 200); ?><?= (strlen(strip_tags($row['isi'])) > 200) ? '...' : ''; ?></p>
         </article>
         <hr class="divider" />
     <?php endforeach; ?>
